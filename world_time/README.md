@@ -128,10 +128,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📧 Contact
 
-Vinald - [@Vinald](http://vinald.me)
+Vinald - [Read More Here](http://vinald.me)
 
 Project Link: [https://github.com/Vinald/world_time](https://github.com/Vinald/world_time)
-
----
-
-<p align="center">Made with ❤️ using Flutter</p>
