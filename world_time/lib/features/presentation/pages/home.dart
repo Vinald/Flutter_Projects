@@ -8,20 +8,41 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  Map data = {};
   @override
   Widget build(BuildContext context) {
+    data = data.isNotEmpty
+        ? data
+        : ModalRoute.of(context)!.settings.arguments as Map;
     return Scaffold(
-      appBar: AppBar(title: Text('My Flutter App')),
       body: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton.icon(
               onPressed: () {
                 Navigator.pushNamed(context, '/location');
               },
-              icon: Icon(Icons.add),
-              label: Text('Edit Location'),
+              icon: Icon(Icons.edit_location, color: Colors.grey[800]),
+              label: Text(
+                'Edit Location',
+                style: TextStyle(color: Colors.grey[800]),
+              ),
             ),
+            SizedBox(height: 20.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  data['location'],
+                  style: TextStyle(fontSize: 30.0, letterSpacing: 2.0),
+                ),
+              ],
+            ),
+            SizedBox(height: 20.0),
+            Text(data['time'], style: TextStyle(fontSize: 66.0)),
+            SizedBox(height: 20.0),
+            Text(data['flag'], style: TextStyle(fontSize: 30.0)),
           ],
         ),
       ),
