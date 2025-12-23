@@ -128,7 +128,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📧 Contact
 
-Vinald - [@Vinald](vinald.me)
+Vinald - [@Vinald](http://vinald.me)
 
 Project Link: [https://github.com/Vinald/world_time](https://github.com/Vinald/world_time)
 
