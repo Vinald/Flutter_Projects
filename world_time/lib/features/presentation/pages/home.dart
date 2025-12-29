@@ -9,19 +9,23 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  Map data = {};
+  Map? data;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Only set data from route arguments if not already set
+    data ??= ModalRoute.of(context)!.settings.arguments as Map;
+  }
 
   @override
   Widget build(BuildContext context) {
-    // Get data from route arguments
-    data = data.isNotEmpty
-        ? data
-        : ModalRoute.of(context)!.settings.arguments as Map;
+    final Map currentData = data ?? {};
 
-    final bool isDaytime = data['isDaytime'] ?? true;
-    final String time = data['time'] ?? '--:--';
-    final String location = data['location'] ?? 'Unknown';
-    final String flag = data['flag'] ?? '🌍';
+    final bool isDaytime = currentData['isDaytime'] ?? true;
+    final String time = currentData['time'] ?? '--:--';
+    final String location = currentData['location'] ?? 'Unknown';
+    final String flag = currentData['flag'] ?? '🌍';
 
     // Determine background gradient based on time of day
     final List<Color> backgroundGradient = isDaytime
