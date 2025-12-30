@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_blog/presentation/services/post_card.dart';
+import 'package:my_blog/presentation/widgets/post_widget.dart';
 import 'package:my_blog/presentation/widgets/text_input_widget.dart';
 
 class Home extends StatefulWidget {
@@ -9,25 +11,30 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  String message = '';
+  List<Post> posts = [];
 
-  void changeMessage(String newMessage) {
+  void newPost(String message) {
     setState(() {
-      message = newMessage;
+      posts.add(
+        Post(title: message, content: 'Content of $message', author: 'Vinald'),
+      );
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Home Page'), centerTitle: true),
+      appBar: AppBar(
+        title: Text('Home Page', style: TextStyle(fontWeight: FontWeight.bold)),
+        centerTitle: true,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            TextInputWeight(callback: changeMessage),
+            Expanded(child: PostList(postItems: posts)),
             SizedBox(height: 20),
-            Text(message, style: TextStyle(fontSize: 24, color: Colors.blue)),
+            Expanded(child: TextInputWeight(callback: newPost)),
           ],
         ),
       ),
