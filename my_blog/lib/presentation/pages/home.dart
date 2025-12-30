@@ -4,7 +4,8 @@ import 'package:my_blog/presentation/widgets/post_list.dart';
 import 'package:my_blog/presentation/widgets/text_input_widget.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  final String username;
+  const Home({super.key, required this.username});
 
   @override
   State<Home> createState() => _HomeState();
@@ -15,9 +16,7 @@ class _HomeState extends State<Home> {
 
   void newPost(String message) {
     setState(() {
-      posts.add(
-        Post(title: message, content: 'Content of $message', author: 'Vinald'),
-      );
+      posts.add(Post(title: message, author: widget.username));
     });
   }
 

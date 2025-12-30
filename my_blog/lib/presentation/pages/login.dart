@@ -41,7 +41,10 @@ class _BodyState extends State<Body> {
     });
     controller.clear();
     FocusScope.of(context).unfocus();
-    Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Home(username: username)),
+    );
   }
 
   @override

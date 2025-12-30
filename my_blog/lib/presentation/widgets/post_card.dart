@@ -25,8 +25,6 @@ class _PostCardState extends State<PostCard> {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 8),
-            Text(widget.post.content),
-            SizedBox(height: 8),
             Text(
               'Author: ${widget.post.author}',
               style: TextStyle(fontStyle: FontStyle.italic),
