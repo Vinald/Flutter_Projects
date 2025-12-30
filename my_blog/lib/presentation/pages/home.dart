@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_blog/presentation/services/post_card.dart';
+import 'package:my_blog/presentation/widgets/post_card.dart';
 import 'package:my_blog/presentation/widgets/post_widget.dart';
 import 'package:my_blog/presentation/widgets/text_input_widget.dart';
 
