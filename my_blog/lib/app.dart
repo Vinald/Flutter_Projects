@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_blog/presentation/pages/home.dart';
+import 'package:my_blog/presentation/pages/login.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Vinald',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: Home(),
+      home: LoginPage(),
     );
   }
 }

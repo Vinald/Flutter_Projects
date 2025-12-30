@@ -21,6 +21,7 @@ class _TextInputWeightState extends State<TextInputWeight> {
   void click() {
     widget.callback(controller.text);
     controller.clear();
+    FocusScope.of(context).unfocus();
   }
 
   @override

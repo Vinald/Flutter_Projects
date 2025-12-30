@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_blog/presentation/widgets/post.dart';
 import 'package:my_blog/presentation/widgets/post_card.dart';
 
 class PostList extends StatefulWidget {

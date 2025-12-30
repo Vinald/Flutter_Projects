@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_blog/presentation/widgets/post_card.dart';
-import 'package:my_blog/presentation/widgets/post_widget.dart';
+import 'package:my_blog/presentation/widgets/post.dart';
+import 'package:my_blog/presentation/widgets/post_list.dart';
 import 'package:my_blog/presentation/widgets/text_input_widget.dart';
 
 class Home extends StatefulWidget {
@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
           children: [
             Expanded(child: PostList(postItems: posts)),
             SizedBox(height: 20),
-            Expanded(child: TextInputWeight(callback: newPost)),
+            TextInputWeight(callback: newPost),
           ],
         ),
       ),
