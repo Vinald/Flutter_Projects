@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class TextInputWeight extends StatefulWidget {
-  const TextInputWeight({super.key});
+  final Function(String) callback;
+
+  const TextInputWeight({super.key, required this.callback});
 
   @override
   State<TextInputWeight> createState() => _TextInputWeightState();
@@ -9,39 +11,35 @@ class TextInputWeight extends StatefulWidget {
 
 class _TextInputWeightState extends State<TextInputWeight> {
   final controller = TextEditingController();
-  String text = "";
 
+  @override
   void dispose() {
     controller.dispose();
     super.dispose();
   }
 
-  void changeText(String value) {
-    setState(() {
-      text = value;
-    });
+  void click() {
+    widget.callback(controller.text);
+    controller.clear();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TextField(
-          controller: controller,
-          decoration: InputDecoration(
-            prefixIcon: Icon(Icons.message),
-            labelText: "Enter a message",
-            border: OutlineInputBorder(),
-          ),
-          onChanged: (text) {
-            changeText(text);
+    return TextField(
+      controller: controller,
+      decoration: InputDecoration(
+        prefixIcon: Icon(Icons.message),
+        labelText: "Enter a message",
+        border: OutlineInputBorder(),
+        suffixIcon: IconButton(
+          icon: Icon(Icons.send),
+          splashColor: Colors.blue,
+          tooltip: "Send message",
+          onPressed: () {
+            click();
           },
         ),
-        Text(
-          'You typed: $text',
-          style: TextStyle(fontSize: 20, color: Colors.black),
-        ),
-      ],
+      ),
     );
   }
 }
